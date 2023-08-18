@@ -37,13 +37,18 @@
           </div>
           {% if user.is_authenticated %}
           <div class="d-flex" role="search">
-            <p>{{ user.username }}</p>
+            <div class="p-2 bg-dark text-white">Logged in as {{ user.username }}</div>
             <a class="nav-link" href="{% url 'logout' %}">
-            <button class="btn btn-outline-success" type="submit">Logout</button>
+            <button class="btn btn-info my-2 my-sm-0" type="submit">Logout</button>
             </a>
           </div>
           {% else %}
-            <p>Logged Out</p>
+          <a class="nav-link" href="{% url 'login' %}">
+            <button class="btn btn-success mx-2 my-2 my-sm-0" type="submit">Login</button>
+            </a>
+            <a class="nav-link" href="{% url 'register' %}">
+              <button class="btn btn-primary my-2 my-sm-0" type="submit">Register</button>
+              </a>
           {% endif %}
         </div>
       </nav>
